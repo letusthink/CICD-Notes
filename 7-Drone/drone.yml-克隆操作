@@ -1,0 +1,20 @@
+kind: pipeline    # 资源类型
+type: kubernetes  # 管道类型：kubernetes、docker、ssh、exec等
+name: default     # 管道名称
+
+clone:
+  disable: true
+  #depth: 1
+
+steps:
+- name: custom-clone
+  image: alpine/git
+  commands:
+  - git clone http://root:muke6666@10.0.7.30/golang/go.git
+  
+- name: ls-file
+  image: alpine
+  commands:
+  - |
+    ls -la
+    pwd
