@@ -1,24 +1,24 @@
 pipeline {
   agent {
     kubernetes {
-     //inheritFrom 'mypod'
-      yaml '''
-        apiVersion: v1
-        kind: Pod
-        spec:
-          containers:
-          - name: maven
-            image: maven:alpine
-            command:
-            - cat
-            tty: true   
-          - name: golang
-            image: golang:1.16.5
-            command:
-            - sleep
-            args:
-            - 99d                          
-        '''
+      //inheritFrom 'mypod'
+      yaml """
+      apiVersion: v1
+      kind: Pod
+      spec:
+        containers:
+        - name: maven
+          image: maven:alpine
+          command:
+          - cat
+          tty: true   
+        - name: golang
+          image: golang:1.16.5
+          command:
+          - sleep
+          args:
+          - 99d                          
+      """
       retries 2
     }
   }
@@ -47,5 +47,5 @@ pipeline {
         sh 'hostname;pwd'
       }
     }
-  }     
+  }
 }
