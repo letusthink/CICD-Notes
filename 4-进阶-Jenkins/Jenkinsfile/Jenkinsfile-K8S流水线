@@ -37,15 +37,15 @@ pipeline {
         }
       }
     }  
-    stage('Run alpine') {
-      agent {
-        node {
-          label 'slave'
-        }
-      }
-      steps {
-        sh 'hostname;pwd'
-      }
-    }
+    // stage('Run alpine') {
+    //   agent {
+    //     node {
+    //       label 'slave'
+    //     }
+    //   }
+    //   steps {
+    //     sh 'hostname;pwd'
+    //   }
+    // }
   }
 }
